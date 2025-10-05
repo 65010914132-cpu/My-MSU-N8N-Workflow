@@ -1,0 +1,93 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bb6367fb-ee4f-4cb4-b63a-29b2c29f88c1",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://www.techtalkthai.com/feed/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "75cd6d2d-3883-41a8-b35b-0eca579fd179",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "Nu7BDA1UYgY8LQSB",
+          "mode": "list",
+          "cachedResultName": "RSS Data table",
+          "cachedResultUrl": "/projects/JZTm8GrHfoBqrgMA/datatables/Nu7BDA1UYgY8LQSB"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "c4803b96-371b-451a-ae3c-08726e1b12f7",
+      "name": "Insert row"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ae4298eb-6ae0-4e1f-9098-fd0c0e4c2a2c",
+  "meta": {
+    "instanceId": "7b62588b8feaf39aaba951f35251c3f88779a73edcaabe52701281dc48362ff9"
+  },
+  "id": "9QODPl5fCIKf3CFx",
+  "tags": []
+}
