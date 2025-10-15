@@ -6,53 +6,165 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        -448,
+        -96
       ],
-      "id": "bb6367fb-ee4f-4cb4-b63a-29b2c29f88c1",
+      "id": "5ffbbed7-29d2-4062-91c9-a432ee27ba3b",
       "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
-        "url": "https://www.techtalkthai.com/feed/",
+        "resource": "fileFolder",
+        "filter": {},
         "options": {}
       },
-      "type": "n8n-nodes-base.rssFeedRead",
-      "typeVersion": 1.2,
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
       "position": [
-        208,
-        0
+        -128,
+        -96
       ],
-      "id": "75cd6d2d-3883-41a8-b35b-0eca579fd179",
-      "name": "RSS Read"
+      "id": "41aa53c5-373b-4cb8-a027-ea9214e507c6",
+      "name": "Search files and folders",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "wNz95Petn7T4W5JB",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        656,
+        -192
+      ],
+      "id": "5c9552fd-bc1d-46d1-a114-970bc769d496",
+      "name": "Limit"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        80
+      ],
+      "id": "502d8878-7633-4f44-a6d9-bc947081252b",
+      "name": "Limit1"
     },
     {
       "parameters": {
-        "dataTableId": {
+        "documentId": {
           "__rl": true,
-          "value": "Nu7BDA1UYgY8LQSB",
+          "value": "1T4Qxf3M14m5LkUlyGqSK9nLJB7ebys5SojfCO62UE2E",
           "mode": "list",
-          "cachedResultName": "RSS Data table",
-          "cachedResultUrl": "/projects/JZTm8GrHfoBqrgMA/datatables/Nu7BDA1UYgY8LQSB"
+          "cachedResultName": "ส่งงาน N8N (การตอบกลับ)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T4Qxf3M14m5LkUlyGqSK9nLJB7ebys5SojfCO62UE2E/edit?usp=drivesdk"
         },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+        "sheetName": {
+          "__rl": true,
+          "value": 308561452,
+          "mode": "list",
+          "cachedResultName": "การตอบแบบฟอร์ม 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1T4Qxf3M14m5LkUlyGqSK9nLJB7ebys5SojfCO62UE2E/edit#gid=308561452"
         },
         "options": {}
       },
-      "type": "n8n-nodes-base.dataTable",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
       "position": [
-        416,
-        0
+        272,
+        80
       ],
-      "id": "c4803b96-371b-451a-ae3c-08726e1b12f7",
-      "name": "Insert row"
+      "id": "6089a350-be2f-499c-9cdc-111c68bd116e",
+      "name": "ส่งงาน N8N",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "tHiU3M3KZBx0Vvw4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "nuddasilakhao@gmail.com",
+        "subject": "ส่งงาน N8N",
+        "message": "https://docs.google.com/spreadsheets/d/1T4Qxf3M14m5LkUlyGqSK9nLJB7ebys5SojfCO62UE2E/edit?resourcekey=&gid=308561452#gid=308561452",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        912,
+        96
+      ],
+      "id": "534f9074-24a0-4499-812b-9c6c3442d082",
+      "name": "สรุปส่งงาน",
+      "webhookId": "cc8a5e9d-d0f9-48e9-9646-cf1df3255d2b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Ouy4lRlHSZBMqR8B",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "nuddasilakhao@gmail.com",
+        "subject": "สรุปแจ้งลา",
+        "message": "https://docs.google.com/spreadsheets/d/1CHnH4hlwexJ4JFWM75lM6Zf85lanqCmd988tu8n7rxE/edit?resourcekey=&gid=1053946065#gid=1053946065",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        992,
+        -192
+      ],
+      "id": "0a923c8f-c630-4da4-902a-baa1b5091e5c",
+      "name": "สรุปการแจ้งลา",
+      "webhookId": "147fade5-7fbd-40fe-9797-b6e2d6f300d0",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Ouy4lRlHSZBMqR8B",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1CHnH4hlwexJ4JFWM75lM6Zf85lanqCmd988tu8n7rxE/edit?resourcekey=&gid=1053946065#gid=1053946065",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1053946065,
+          "mode": "list",
+          "cachedResultName": "การตอบแบบฟอร์ม 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CHnH4hlwexJ4JFWM75lM6Zf85lanqCmd988tu8n7rxE/edit#gid=1053946065"
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        272,
+        -208
+      ],
+      "id": "c80d3957-2b84-4572-b95f-8c0c54b6b57d",
+      "name": "การแจ้งลา",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "tHiU3M3KZBx0Vvw4",
+          "name": "Google Sheets account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -61,18 +173,72 @@
       "main": [
         [
           {
-            "node": "RSS Read",
+            "node": "Search files and folders",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "RSS Read": {
+    "Search files and folders": {
       "main": [
         [
           {
-            "node": "Insert row",
+            "node": "การแจ้งลา",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ส่งงาน N8N",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "สรุปการแจ้งลา",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "สรุปส่งงาน",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ส่งงาน N8N": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "สรุปการแจ้งลา": {
+      "main": [
+        []
+      ]
+    },
+    "การแจ้งลา": {
+      "main": [
+        [
+          {
+            "node": "Limit",
             "type": "main",
             "index": 0
           }
@@ -84,10 +250,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ae4298eb-6ae0-4e1f-9098-fd0c0e4c2a2c",
+  "versionId": "504eb27b-b55c-4942-8173-12decc81c16f",
   "meta": {
-    "instanceId": "7b62588b8feaf39aaba951f35251c3f88779a73edcaabe52701281dc48362ff9"
+    "templateCredsSetupCompleted": true,
+    "instanceId": "be05f521e4c28713efe221df65a80eef4cc016952be2b12c79331011a7274570"
   },
-  "id": "9QODPl5fCIKf3CFx",
+  "id": "rpzhjMY69dpkjcYH",
   "tags": []
 }
